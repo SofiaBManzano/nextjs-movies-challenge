@@ -7,6 +7,7 @@ import styled from 'styled-components'
         padding: 13px 16px;
         border: 1px solid var(--primary-button);
         border-radius: 8px;
+        color: white;
         
         &::placeholder{
         color: var(--light-text);

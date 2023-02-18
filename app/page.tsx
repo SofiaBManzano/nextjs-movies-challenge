@@ -1,10 +1,21 @@
+"use client";
+import { useEffect, useState } from "react";
+import Button from "./components/Button";
 
-'use client'
-import { useEffect , useState } from "react";
-const fetchListMovies = async (token:string) => {
+interface Movie {
+  title: string;
+  description: string;
+  genre: string;
+  highlighted: boolean;
+  id: string;
+  poster: string;
+  rating: number;
+  thumbnail: string;
+}
+
+const fetchListMovies = async (token: string | null) => {
   var myHeaders = new Headers();
-  
-  
+
   myHeaders.append("Accept", "application/json");
   myHeaders.append("Authorization", `Bearer ${token}`);
 
@@ -13,28 +24,70 @@ const fetchListMovies = async (token:string) => {
     headers: myHeaders,
   };
 
-  return fetch("https://kata.conducerevel.com/films/movies", requestOptions)
-    .then((response) => response.json())
-    // .then((result) => console.log(result))
-    // .catch((error) => console.log("error", error));
+  return fetch(
+    "https://kata.conducerevel.com/films/movies",
+    requestOptions
+  ).then((response) => response.json());
+};
+const fetchGenres = async (token: string | null) => {
+  var myHeaders = new Headers();
+
+  myHeaders.append("Accept", "application/json");
+  myHeaders.append("Authorization", `Bearer ${token}`);
+
+  var requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+  };
+
+  return fetch(
+    `https://kata.conducerevel.com/films/genres`,
+    requestOptions
+  ).then((response) => response.json());
 };
 
-export default  function ListMovies() {
-  interface TokenData {
-    token: string;
-  }
-const [token, setToken] = useState<TokenData | null>(null)
-useEffect(() => {
-  setToken(localStorage.getItem(token))
-})
-    // Perform localStorage action
-    // const token = localStorage.getItem("token");
+export default function ListMovies() {
+  const [movies, setMovies] = useState([]);
+  const [genres, setGenres] = useState([]);
+  const token: string | null = localStorage.getItem("token");
 
-// const prueba= typeof window
-//   console.log("prueba", prueba)
-  // const infoMovies = await fetchListMovies(token);
-  // localStorage.setItem("movies", infoMovies)
-  // console.log(infoMovies);
+  useEffect(() => {
+    fetchListMovies(token).then((items) => {
+      setMovies(items);
+    });
+    fetchGenres(token).then((items) => {
+      setGenres(items);
+    });
+  }, []);
+  const myGenres = [...new Set(movies.map((movie) => movie.genre))];
 
-  // infoMovies.map((oneMovie) => oneMovie.rating);
+  const handleComedyFilter = () => {
+    const filterMovies = movies.filter(
+      (movie: Movie) => movie.genre === "22f9f9a3-c84c-4d28-81f5-218d87cc41f5"
+    );
+    setMovies(filterMovies);
+  };
+  return (
+    <>
+      <Button onClick={handleComedyFilter}>Comedy</Button>
+      {myGenres.map((idGenre) => {
+        // get genre name
+        const genre = genres.filter(
+          (item: { id: string; genre: string }) => item.id === idGenre
+        )[0].name;
+        // get movies by genre
+        const filterMovies = movies.filter(
+          (movie: Movie) => movie.genre === idGenre
+        );
+        return (
+          <>
+            <h2>{genre}</h2>
+            {filterMovies.map((movie) => (
+              <p>{movie.title}</p>
+            ))}
+          </>
+        );
+      })}
+    </>
+  );
 }
