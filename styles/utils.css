@@ -22,3 +22,11 @@
     max-width: var(--site__max-width);
 
 }
+.c-movies-list{
+flex-direction: row;
+flex-wrap: nowrap;
+gap: 24px;
+overflow-x: scroll;
+}
+.c-movies-lisr::-webkit-scrollbar {
+    display: none}

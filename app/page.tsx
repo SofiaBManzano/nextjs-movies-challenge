@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import Button from "./components/Button";
-
+import ContainerImg from "./components/ContainerImg"
+import PosterImg from "./components/PosterImg"
 interface Movie {
   title: string;
   description: string;
@@ -80,12 +81,14 @@ export default function ListMovies() {
           (movie: Movie) => movie.genre === idGenre
         );
         return (
-          <>
+       <>
             <h2>{genre}</h2>
+              <aside class="u-flex c-movies-list">
             {filterMovies.map((movie) => (
-              <p>{movie.title}</p>
+            <ContainerImg><PosterImg src={movie.thumbnail}></PosterImg></ContainerImg>
+              
             ))}
-          </>
+          </aside></>
         );
       })}
     </>
