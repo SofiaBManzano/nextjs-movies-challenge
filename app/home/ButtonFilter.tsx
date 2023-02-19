@@ -1,14 +1,10 @@
 "use client";
 import Button from "../components/Button";
 export function ButtonFilter(props: any) {
-  
-  const handleComedyFilter = () => {
-    if (!props.isFiltered) {
-      props.handleSetGenres([props.genre]);
-    } else {
-      props.handleSetGenres(props.allGenres)
-    }
-    props.toggleFiltered()
+  const handleButtonFilter = () => {
+    props.handleSetMovies(
+      props.movies.filter((movie) => movie.genre === props.genre.id)
+    );
   };
-  return <Button onClick={handleComedyFilter}>{props.genre.name}</Button>;
+  return <Button onClick={handleButtonFilter}>{props.genre.name}</Button>;
 }
