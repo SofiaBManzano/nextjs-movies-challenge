@@ -28,5 +28,6 @@ flex-wrap: nowrap;
 gap: 24px;
 overflow-x: scroll;
 }
-.c-movies-lisr::-webkit-scrollbar {
-    display: none}
+/* .c-movies-list::-webkit-scrollbar {
+    display: none
+} */
