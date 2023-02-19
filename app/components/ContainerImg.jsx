@@ -7,7 +7,7 @@ import styled from 'styled-components'
  height: 386px;
  border-radius: 8px;
  border: red 1px solid;
- width: 100%;
+
  overflow: hidden;
  overflow-x: auto;
 min-width: 261px;
