@@ -9,12 +9,14 @@ export function ListOfMovies(props: any) {
   return (
     <>
       {props.genres.map((genre: GenreType) => {
-        return (
+        const filteredMovies = props.movies
+        .filter((movie: MovieType) => movie.genre === genre.id)
+      
+        return filteredMovies.length > 0 ? (
           <>
             <h2>{genre.name}</h2>
             <aside className="u-flex c-movies-list">
-              {props.movies
-                .filter((movie: MovieType) => movie.genre === genre.id)
+              {filteredMovies
                 .map((movie: MovieType) => (
                   <ContainerImg>
                     <PosterImg src={movie.thumbnail}></PosterImg>
@@ -22,7 +24,7 @@ export function ListOfMovies(props: any) {
                 ))}
             </aside>
           </>
-        );
+        ) : <></>
       })}
     </>
   );
