@@ -1,6 +1,6 @@
 //components
-import HeroHighlighted from "./home/HeroHighlighted";
-import MenuMovies from "./home/MenuMovies";
+import HeroHighlighted from "./movies/HeroHighlighted";
+import MenuMovies from "./movies/MenuMovies";
 
 export default function ListMovies() {
   return (

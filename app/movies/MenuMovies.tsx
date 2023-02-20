@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ButtonFilter } from "./ButtonFilter";
 import { ListOfMovies } from "./ListOfMovies";
 import GenreType from "../components/types";
+import MovieType from "../components/types";
 const fetchGenres = async (token: string | null) => {
   var myHeaders = new Headers();
 
@@ -38,11 +39,11 @@ const fetchListMovies = async (token: string | null) => {
 };
 
 export default function MenuMovies() {
-  const [genres, setGenres] = useState([]);
-  const [movies, setMovies] = useState([]);
-  const [genreFilter, setGenreFilter] = useState([]);
+  const [genres, setGenres] = useState<GenreType[]>([]);
+  const [movies, setMovies] = useState<MovieType[]>([]);
+  const [genreFilter, setGenreFilter] = useState<string[]>([]);
   const token: string | null = localStorage.getItem("token");
-  const handleSetGenreFilter = (filter: string) => {
+  const handleSetGenreFilter = (filter: []) => {
     setGenreFilter(filter);
   };
   useEffect(() => {
