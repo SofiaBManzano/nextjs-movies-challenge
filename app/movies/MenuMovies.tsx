@@ -4,6 +4,8 @@ import { ButtonFilter } from "./ButtonFilter";
 import { ListOfMovies } from "./ListOfMovies";
 import GenreType from "../components/types";
 import MovieType from "../components/types";
+import MainSection from "app/components/home/main";
+
 const fetchGenres = async (token: string | null) => {
   var myHeaders = new Headers();
 
@@ -65,7 +67,7 @@ export default function MenuMovies() {
       ? movies
       : movies.filter((movie) => genreFilter.includes(movie.genre));
   return (
-    <>
+    <MainSection>
       {genres.map((genre: GenreType) => (
         <ButtonFilter
           genreFilter={genreFilter}
@@ -74,6 +76,6 @@ export default function MenuMovies() {
         />
       ))}
       <ListOfMovies movies={filteredMovies} genres={genres} />
-    </>
+    </MainSection>
   );
 }

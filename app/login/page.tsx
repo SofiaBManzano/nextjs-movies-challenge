@@ -2,10 +2,13 @@
 import { useState } from "react";
 import "../../styles/login/login.css";
 import Button from "../components/Button";
-import Input from "../components/Input";
-import ContentLogin from "../components/ContentLogin";
-import Layout from "../components/Layout";
+import Input from "../components/authLayout/Input";
+import ContentLogin from "../components/authLayout/ContentLogin";
+import Layout from "../components/authLayout/Layout";
 import { useRouter } from "next/navigation";
+import Image from 'next/image';
+import moviesbg from "../../public/movie-bg.jpg"
+
 
 const fetchLogin = async (email: string, password: string) => {
   var myHeaders = new Headers();
@@ -62,10 +65,17 @@ export default function Login() {
   };
   return (
     <Layout className="c-login u-flex">
+
+      {/* <Image src="/movie-bg.jpg" alt="movie-collage" width={4541/10} height={2195/10}></Image> */}
+
+<Image src={moviesbg} alt="movie-collage" fill></Image>
+    
+  
       <ContentLogin className=" u-flex u-flex-center">
         <Input
           className="u-margin-bottom c-login-component-width"
           type="text"
+          required
           value={valueUser}
           onChange={(e: any) => {
             setValueUser(e.currentTarget.value);
@@ -75,7 +85,8 @@ export default function Login() {
         <Input
           className="u-margin-bottom c-login-component-width"
           value={valuePassword}
-          type="text"
+          type="password"
+          required
           onChange={(e: any) => {
             setValuePassword(e.currentTarget.value);
           }}

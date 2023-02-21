@@ -1,24 +1,18 @@
-import '../styles/globals.css'
-import '../styles/utils.css'
-
-
+import "../styles/globals.css";
+import "../styles/utils.css";
+import "./components/config/globalStyles"
+import GlobalStyles from "./components/config/globalStyles";
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="es">
-<head><title>RVL</title></head>
-
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-     
-      <body>
-        
-        {children}</body>
+      <head>
+        <title>RVL</title>
+      </head>
+      <GlobalStyles/><body>{children}</body>
     </html>
-  )
+  );
 }

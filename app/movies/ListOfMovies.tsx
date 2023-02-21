@@ -1,10 +1,12 @@
 "use client";
 
-import ContainerImg from "app/components/ContainerImg";
-import PosterImg from "app/components/PosterImg";
+import ContainerImg from "app/components/home/ContainerImg";
+import PosterImg from "app/components/home/PosterImg";
 import MovieType from "../components/types";
 import GenreType from "../components/types";
 import Link from "next/link";
+import List from "app/components/home/List";
+const {ListItem, ListContent} = List;
 
 export function ListOfMovies(props: any) {
   return (
@@ -18,17 +20,17 @@ export function ListOfMovies(props: any) {
           <>
             <h2>{genre.name}</h2>
 
-            <ul className="u-flex c-movies-list">
+            <ListContent>
               {filteredMovies.map((movie: MovieType) => (
-                <li>
+                <ListItem draggable="true" >
                   <Link href="movies/[id]" as={`/movies/${movie.id}`}>
                     <ContainerImg>
                       <PosterImg src={movie.thumbnail}></PosterImg>
                     </ContainerImg>
                   </Link>
-                </li>
+                </ListItem>
               ))}
-            </ul>
+            </ListContent>
           </>
         ) : (
           <></>

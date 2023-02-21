@@ -6,11 +6,11 @@ import styled from 'styled-components'
  width: 261px;
  height: 386px;
  border-radius: 8px;
- border: red 1px solid;
+
 
  overflow: hidden;
  overflow-x: auto;
-min-width: 261px;
+    min-width: 261px;
     `;
 
 export default ContainerImg

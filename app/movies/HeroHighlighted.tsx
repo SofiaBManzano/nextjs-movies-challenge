@@ -2,8 +2,12 @@
 import { useEffect, useState } from "react";
 import MovieType from "../components/types";
 import Button from "../components/Button";
-import ContainerPoster from "../components/ContainerPoster";
-import PosterImg from "../components/PosterImg";
+
+import PosterImg from "../components/home/PosterImg";
+import Highlight from "app/components/home/Highlight";
+import HighlightInfoAll from "app/components/home/HighlightInfoAll";
+
+const {HighlightContentInfo, HighlightInfo} = HighlightInfoAll;
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -35,16 +39,15 @@ export default function HeroHighlighted() {
   }, []);
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
+      breakpoint: { max: 4000, min: 1440 },
       items: 1,
     },
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 1440, min: 768 },
       items: 1,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 768, min: 464 },
       items: 1,
     },
     mobile: {
@@ -56,16 +59,20 @@ export default function HeroHighlighted() {
     .filter((movie: MovieType) => movie.highlighted === true)
     .map((movie: MovieType) => {
       return (
-        <div>
-          <div>
+        <Highlight>
+          <HighlightContentInfo>
+            <HighlightInfo>
             <h2>{movie.title}</h2>
             <p>{movie.description}</p>
             <Button>Discover</Button>
-          </div>
-          <div>
+
+            </HighlightInfo>
+       
+          </HighlightContentInfo>
+         
             <PosterImg src={movie.poster}></PosterImg>
-          </div>
-        </div>
+         
+        </Highlight>
       );
     });
   return (
@@ -84,7 +91,7 @@ export default function HeroHighlighted() {
         customTransition="all .4"
         transitionDuration={500}
         containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
+        removeArrowOnDeviceType={["desktop", "tablet", "mobile"]}
         //   deviceType={this.props.deviceType}
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"

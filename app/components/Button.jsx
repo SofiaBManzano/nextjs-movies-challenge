@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-
+import {colors} from './config/theme'
  export const button =  styled.button`
         background: 
-        var(--primary-button);
+        ${colors.primaryBtn};
         cursor: pointer;
-        color: white;
-        font-weight: 400;
+        color: ${colors.lightColor};
+
         font-size: 16px;
         line-height: 28px;
 
