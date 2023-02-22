@@ -1,20 +1,21 @@
 "use client";
 import { createGlobalStyle } from "styled-components";
-import { Roboto } from "@next/font/google";
-import {colors} from './theme';
 
-const font = Roboto({
-  subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
-});
+import {colors} from './theme';
+import{fontPrimary} from './theme'
+
+
+
 const GlobalStyles = createGlobalStyle`
 
 html,
 body {
     padding: 0;
     margin: 0;
-    ${font.style}
+    ${fontPrimary.style};
     background-color:  ${colors.lightDark};
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 a {
@@ -36,7 +37,8 @@ img {
 ul {
     list-style-type: none;
 }
-p, h2 {
+
+p {
     color: ${colors.lightColor};
     -webkit-margin-before: 0;
     margin-block-start: 0;
@@ -44,11 +46,6 @@ p, h2 {
     margin-block-end: 0;
     margin: 0 0 10px;
 
-    display: -webkit-box;
-    max-width: 200px;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 
 }
 

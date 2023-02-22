@@ -13,3 +13,13 @@ export default interface MovieType {
     id: string;
     name: string;
   }
+  export interface ButtonProps {
+
+    primary: boolean;
+    active: boolean
+    size: "small" | "medium" | "large";
+    isActive: boolean;
+    label: string;
+  
+  
+  };

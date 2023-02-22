@@ -5,6 +5,9 @@ import { ListOfMovies } from "./ListOfMovies";
 import GenreType from "../components/types";
 import MovieType from "../components/types";
 import MainSection from "app/components/home/main";
+import Containers from "app/components/Containers";
+import { colors } from "app/components/config/theme";
+const {ContentainerButtonFilter} = Containers
 
 const fetchGenres = async (token: string | null) => {
   var myHeaders = new Headers();
@@ -40,7 +43,7 @@ const fetchListMovies = async (token: string | null) => {
   ).then((response) => response.json());
 };
 
-export default function MenuMovies() {
+export default function MenuMovies(props:any) {
   const [genres, setGenres] = useState<GenreType[]>([]);
   const [movies, setMovies] = useState<MovieType[]>([]);
   const [genreFilter, setGenreFilter] = useState<string[]>([]);
@@ -68,13 +71,17 @@ export default function MenuMovies() {
       : movies.filter((movie) => genreFilter.includes(movie.genre));
   return (
     <MainSection>
-      {genres.map((genre: GenreType) => (
+      <ContentainerButtonFilter>
+         {genres.map((genre: GenreType) => (
         <ButtonFilter
+          
+          bgColor={colors.primaryBtn}
           genreFilter={genreFilter}
           handleSetGenreFilter={handleSetGenreFilter}
           genre={genre}
         />
-      ))}
+      ))}</ContentainerButtonFilter>
+     
       <ListOfMovies movies={filteredMovies} genres={genres} />
     </MainSection>
   );

@@ -2,12 +2,12 @@
 import { useEffect, useState } from "react";
 import MovieType from "../components/types";
 import Button from "../components/Button";
-
+import  "../../styles/styles.css";
 import PosterImg from "../components/home/PosterImg";
 import Highlight from "app/components/home/Highlight";
 import HighlightInfoAll from "app/components/home/HighlightInfoAll";
 
-const {HighlightContentInfo, HighlightInfo} = HighlightInfoAll;
+const {HighlightContentInfo, HighlightInfo, HighlightedText, HighlightedTitle} = HighlightInfoAll;
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -62,10 +62,9 @@ export default function HeroHighlighted() {
         <Highlight>
           <HighlightContentInfo>
             <HighlightInfo>
-            <h2>{movie.title}</h2>
-            <p>{movie.description}</p>
-            <Button>Discover</Button>
-
+            <HighlightedTitle>{movie.title}</HighlightedTitle>
+            <HighlightedText>{movie.description}</HighlightedText>
+            <Button primary={true}>Discover</Button>
             </HighlightInfo>
        
           </HighlightContentInfo>
@@ -75,6 +74,7 @@ export default function HeroHighlighted() {
         </Highlight>
       );
     });
+    
   return (
     <>
       {" "}
@@ -83,7 +83,7 @@ export default function HeroHighlighted() {
         draggable={false}
         showDots={true}
         responsive={responsive}
-        ssr={true} // means to render carousel on server-side.
+        ssr={true}
         infinite={true}
         autoPlay={true}
         autoPlaySpeed={6000}
@@ -92,8 +92,7 @@ export default function HeroHighlighted() {
         transitionDuration={500}
         containerClass="carousel-container"
         removeArrowOnDeviceType={["desktop", "tablet", "mobile"]}
-        //   deviceType={this.props.deviceType}
-        dotListClass="custom-dot-list-style"
+        dotListClass="{border-color: blue 1px solid;}"
         itemClass="carousel-item-padding-40-px"
       >
         {slider}

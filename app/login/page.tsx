@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import "../../styles/login/login.css";
 import Button from "../components/Button";
 import Input from "../components/authLayout/Input";
 import ContentLogin from "../components/authLayout/ContentLogin";
@@ -93,6 +92,7 @@ export default function Login() {
           placeholder="Password"
         ></Input>
         <Button
+          primary={true}
           className="u-margin-bottom c-login-component-width"
           role="button"
           onClick={handleClick}

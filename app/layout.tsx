@@ -1,5 +1,4 @@
-import "../styles/globals.css";
-import "../styles/utils.css";
+
 import "./components/config/globalStyles"
 import GlobalStyles from "./components/config/globalStyles";
 export default function RootLayout({

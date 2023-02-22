@@ -5,7 +5,7 @@ export const Highlight = styled.div`
   width: 100%;
   height: 386px;
 
-  border: 1px solid red;
+  border: 1px solid blue;
   overflow: hidden;
   overflow-x: auto;
   min-width: 261px;

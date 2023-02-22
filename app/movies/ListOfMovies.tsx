@@ -6,7 +6,7 @@ import MovieType from "../components/types";
 import GenreType from "../components/types";
 import Link from "next/link";
 import List from "app/components/home/List";
-const {ListItem, ListContent} = List;
+const {ListItem, ListContent, ListTitle} = List;
 
 export function ListOfMovies(props: any) {
   return (
@@ -18,11 +18,11 @@ export function ListOfMovies(props: any) {
 
         return filteredMovies.length > 0 ? (
           <>
-            <h2>{genre.name}</h2>
+            <ListTitle>{genre.name}</ListTitle>
 
             <ListContent>
               {filteredMovies.map((movie: MovieType) => (
-                <ListItem draggable="true" >
+                <ListItem>
                   <Link href="movies/[id]" as={`/movies/${movie.id}`}>
                     <ContainerImg>
                       <PosterImg src={movie.thumbnail}></PosterImg>

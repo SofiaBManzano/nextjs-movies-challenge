@@ -12,8 +12,8 @@ const HighlightContentInfo =  styled.div`
     `;
 
 const HighlightInfo =  styled.div`
-border: red 1px solid;
-    padding: 20px;
+    border: red 1px solid;
+    padding: 20px 16px;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -25,5 +25,29 @@ border: red 1px solid;
     }
 }
     `;
+    const HighlightedTitle =  styled.h2`
+   color: white;
+   text-transform: uppercase;
+   font-size: 54px;
+   margin-bottom: 16px;
+    @media (min-width: 768px) {
+      max-width: 324px;
+    
+       
+    }
+}
+    `;
+    const HighlightedText =  styled.p`
+    display: -webkit-box;
+    max-width: 400px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    @media (min-width: 768px) {
+        max-width: 200px;
+       
+    }
+}
+    `;
 
-export default {HighlightContentInfo, HighlightInfo}
+export default {HighlightContentInfo, HighlightInfo, HighlightedText, HighlightedTitle}
