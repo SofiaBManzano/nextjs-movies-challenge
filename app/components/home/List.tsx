@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import{fontSecondary} from '../config/theme'
+import { fontSecondary } from "../config/theme";
 const ListContent = styled.ul`
   overflow-x: scroll;
   display: flex;
@@ -15,10 +15,9 @@ const ListContent = styled.ul`
 `;
 const ListItem = styled.li`
   display: inline-block;
-  
 `;
 const ListTitle = styled.h2`
-font-family: ${fontSecondary.style};
+  font-family: ${fontSecondary.style};
   padding-left: 16px;
 
   @media (min-width: 768px) {

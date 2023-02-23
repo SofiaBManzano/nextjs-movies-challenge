@@ -1,17 +1,15 @@
-
 .react-multi-carousel-list {
-  aspect-ratio: 375 / 600 ;
+  aspect-ratio: 375 / 600;
   margin-bottom: 40px;
   height: 100vh;
   width: 100%;
 }
-.react-multi-carousel-track{
-    height: 100%;
+.react-multi-carousel-track {
+  height: 100%;
 }
 .react-multi-carousel-dot {
   width: 100% !important;
 }
-
 
 .react-multi-carousel-dot-list {
   margin: auto !important;
@@ -27,49 +25,45 @@
   border-style: hidden !important;
 }
 .react-multi-carousel-dot--active button {
-    background: rgba(255, 255, 255, 0.7) !important;
-  }
+  background: rgba(255, 255, 255, 0.7) !important;
+}
 @media (min-width: 768px) {
-    .react-multi-carousel-list{
-      height: 90vh;
-      width: 100%;
-        aspect-ratio: 768 / 600;
-    }
-    .react-multi-carousel-dot-list {
-        max-width: calc(100% - 180 * 2px);
-        gap: 16px;
-      }
-
+  .react-multi-carousel-list {
+    height: 90vh;
+    width: 100%;
+    aspect-ratio: 768 / 600;
+  }
+  .react-multi-carousel-dot-list {
+    max-width: calc(100% - 180 * 2px);
+    gap: 16px;
+  }
 }
 
 @media (min-width: 1140px) {
-    .react-multi-carousel-list{
-        aspect-ratio: 1140 / 800 ;
-        max-height: 84vh;
-    }
-    .react-multi-carousel-dot-list {
-        max-width: calc(100% - 516 * 2px);
-       
-      }
+  .react-multi-carousel-list {
+    aspect-ratio: 1140 / 800;
+    max-height: 84vh;
+  }
+  .react-multi-carousel-dot-list {
+    max-width: calc(100% - 516 * 2px);
+  }
 }
 @media (min-width: 1660px) {
-  .react-multi-carousel-list{
-
+  .react-multi-carousel-list {
     max-height: 76vh;
-}
+  }
   .react-multi-carousel-dot-list {
-      max-width: calc(100% - 626 * 2px);
-     
-    }
+    max-width: calc(100% - 626 * 2px);
+  }
 }
 
-.o-icon{
+.o-icon {
   position: relative;
   width: 2em;
   height: 2em;
   right: 0;
 }
-.bg-image{
+.bg-image {
   bottom: 0;
   display: block;
   left: 0;

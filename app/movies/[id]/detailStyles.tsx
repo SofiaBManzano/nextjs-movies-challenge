@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 const DetailLayoutInfo = styled.section`
   max-width: 1400px;
   margin: auto;
@@ -50,6 +49,5 @@ const DetailInfo = styled.p`
   font-size: 16px;
   font-weight: 700;
 `;
-
 
 export default { ImageContainer, BtnsContainer, DetailInfo, DetailLayoutInfo };

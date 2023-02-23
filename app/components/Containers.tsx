@@ -28,5 +28,4 @@ const ContainerImg = styled.div`
   min-width: 261px;
 `;
 
-
 export default { ContentainerButtonFilter, ContainerImg };

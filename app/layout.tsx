@@ -1,5 +1,4 @@
-
-import "./components/config/globalStyles"
+import "./components/config/globalStyles";
 import GlobalStyles from "./components/config/globalStyles";
 export default function RootLayout({
   children,
@@ -11,7 +10,8 @@ export default function RootLayout({
       <head>
         <title>RVLMOVIES</title>
       </head>
-      <GlobalStyles/><body>{children}</body>
+      <GlobalStyles />
+      <body>{children}</body>
     </html>
   );
 }

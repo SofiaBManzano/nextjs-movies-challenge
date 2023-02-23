@@ -1,10 +1,8 @@
 "use client";
 import { createGlobalStyle } from "styled-components";
 
-import {colors} from './theme';
-import{fontPrimary} from './theme'
-
-
+import { colors } from "./theme";
+import { fontPrimary } from "./theme";
 
 const GlobalStyles = createGlobalStyle`
 

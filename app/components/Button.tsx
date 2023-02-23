@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import { fontSecondary } from "./config/theme";
 import { colors } from "./config/theme";
-import { ButtonProps } from "./types";
+import { ButtonFilters } from "./types";
 
-export const button = styled.button<ButtonProps>`
-  background: ${(props: ButtonProps) =>
+export const button = styled.button<ButtonFilters>`
+  background: ${(props: ButtonFilters) =>
     props.primary || props.isActive
       ? `${colors.primaryBtn}`
       : `${colors.secondaryBtn}`};
 
   cursor: pointer;
-  color: ${(props: ButtonProps) =>
+  color: ${(props: ButtonFilters) =>
     props.primary || props.isActive
       ? `${colors.lightColor}`
       : `${colors.darkColor}`};

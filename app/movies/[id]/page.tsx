@@ -2,12 +2,14 @@
 import { useEffect, useState } from "react";
 import MovieType from "app/components/types";
 import HighlightInfoAll from "../../components/home/HighlightInfoAll";
-const {HighlightedTitle} = HighlightInfoAll;
+const { HighlightedTitle } = HighlightInfoAll;
 import Detail from "./detailStyles";
 import Button from "app/components/Button";
 const { ImageContainer, BtnsContainer, DetailInfo, DetailLayoutInfo } = Detail;
-import UnderConstruction from "./underConstruction";
+import UnderConstruction from "./UnderConstruction";
 import PosterImg from "app/components/home/PosterImg";
+import { ButtonFilters } from "app/components/types";
+
 const fetchMovieById = async (token: string | null, id: string) => {
   var myHeaders = new Headers();
 
@@ -34,7 +36,6 @@ export default function Movie({ params }: any, props: any) {
   }, []);
   return (
     <>
-
       <ImageContainer>
         <picture>
           <source media="(max-width: 768px)" srcSet={movie.thumbnail} />
@@ -43,22 +44,23 @@ export default function Movie({ params }: any, props: any) {
         </picture>
         <BtnsContainer>
           {" "}
-          <Button primary={false}>Trailer</Button>
-          <Button primary={true}>Play</Button>
+          <Button<ButtonFilters> primary={false}>Trailer</Button>
+          <Button<ButtonFilters> primary={true}>Play</Button>
         </BtnsContainer>
       </ImageContainer>
-      <DetailLayoutInfo> <DetailInfo>
-        Rating: <span>{movie.rating}</span>
-      </DetailInfo>
-      <DetailInfo>
-        Cast <span>{movie.cast}</span>
-      </DetailInfo>
-
-      <HighlightedTitle>{movie.title}</HighlightedTitle>
-      <p>{movie.description}</p>
+      <DetailLayoutInfo>
+        {" "}
+        <DetailInfo>
+          Rating: <span>{movie.rating}</span>
+        </DetailInfo>
+        <DetailInfo>
+          Cast <span>{movie.cast}</span>
+        </DetailInfo>
+        <HighlightedTitle>{movie.title}</HighlightedTitle>
+        <p>{movie.description}</p>
       </DetailLayoutInfo>
-     
-      <UnderConstruction/>
+
+      <UnderConstruction />
     </>
   );
 }

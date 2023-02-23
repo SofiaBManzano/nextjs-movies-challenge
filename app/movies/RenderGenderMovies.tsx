@@ -1,8 +1,8 @@
 "use client";
 
-import ScrollContainer from 'react-indiana-drag-scroll'
-import 'react-indiana-drag-scroll/dist/style.css'
-import "../../styles/carouselList.css"
+import ScrollContainer from "react-indiana-drag-scroll";
+import "react-indiana-drag-scroll/dist/style.css";
+import "../../styles/carouselList.css";
 import Carousel from "react-multi-carousel";
 
 import ContainerImg from "app/components/home/ContainerImg";
@@ -12,7 +12,6 @@ import GenreType from "../components/types";
 import Link from "next/link";
 import List from "app/components/home/List";
 const { ListItem, ListContent, ListTitle } = List;
-
 
 export function RenderGenderMovies(props: any): JSX.Element {
   const responsive = {
@@ -41,32 +40,27 @@ export function RenderGenderMovies(props: any): JSX.Element {
             (movie: MovieType) => movie.genre === genre.id
           );
           const renderMovies = filteredMovies.map((movie: MovieType) => (
-            
-              <Link href="movies/[id]" as={`/movies/${movie.id}`}>
-                <ContainerImg>
-                  <PosterImg src={movie.thumbnail}></PosterImg>
-                </ContainerImg>
-               </Link>
-           
+            <Link href="movies/[id]" as={`/movies/${movie.id}`}>
+              <ContainerImg>
+                <PosterImg src={movie.thumbnail}></PosterImg>
+              </ContainerImg>
+            </Link>
           ));
           return filteredMovies.length > 0 ? (
             <>
               <ListTitle>{genre.name}</ListTitle>
 
-               <Carousel
-               responsive={responsive}
-               draggable={true}
-               ssr={true}
-               showDots={false}
-               autoPlay={false}
-               keyBoardControl={true}
-               removeArrowOnDeviceType={[
-                "tablet",
-                "mobile",
-              ]}
-               >
-                {renderMovies} 
-                </Carousel>
+              <Carousel
+                responsive={responsive}
+                draggable={true}
+                ssr={true}
+                showDots={false}
+                autoPlay={false}
+                keyBoardControl={true}
+                removeArrowOnDeviceType={["tablet", "mobile"]}
+              >
+                {renderMovies}
+              </Carousel>
             </>
           ) : (
             <></>

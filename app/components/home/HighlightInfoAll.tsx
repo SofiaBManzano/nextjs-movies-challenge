@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { flexContainer } from "../types";
-import { colors } from "../config/theme";
+
 import { fontSecondary } from "../config/theme";
 const HighlightContentInfo = styled.div`
 
@@ -87,13 +86,13 @@ const HighlightContainerDiscover = styled.div`
   justify-content: start;
   height: 50px;
 `;
-const HighlightContainerInfoBtn = styled.div<flexContainer>`
+const HighlightContainerInfoBtn = styled.div`
   width: 100%;
   display: flex;
   justify-content: end;
   height: 50px;
 `;
-const HighlightContainerInfo = styled.div<flexContainer>`
+const HighlightContainerInfo = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
