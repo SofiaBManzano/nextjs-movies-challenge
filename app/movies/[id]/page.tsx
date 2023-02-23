@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import MovieType from "app/components/types";
 import HighlightInfoAll from "../../components/home/HighlightInfoAll";
 const { HighlightedTitle } = HighlightInfoAll;
 import Detail from "./detailStyles";
@@ -8,7 +7,6 @@ import Button from "app/components/Button";
 const { ImageContainer, BtnsContainer, DetailInfo, DetailLayoutInfo } = Detail;
 import UnderConstruction from "./UnderConstruction";
 import PosterImg from "app/components/home/PosterImg";
-import { ButtonFilters } from "app/components/types";
 
 const fetchMovieById = async (token: string | null, id: string) => {
   var myHeaders = new Headers();
