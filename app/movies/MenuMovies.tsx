@@ -1,13 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import { ButtonFilter } from "./ButtonFilter";
-import { ListOfMovies } from "./ListOfMovies";
+import { RenderGenderMovies } from "./RenderGenderMovies";
 import GenreType from "../components/types";
 import MovieType from "../components/types";
 import MainSection from "app/components/home/main";
 import Containers from "app/components/Containers";
 import { colors } from "app/components/config/theme";
-const {ContentainerButtonFilter} = Containers
+const { ContentainerButtonFilter } = Containers;
 
 const fetchGenres = async (token: string | null) => {
   var myHeaders = new Headers();
@@ -43,7 +43,7 @@ const fetchListMovies = async (token: string | null) => {
   ).then((response) => response.json());
 };
 
-export default function MenuMovies(props:any) {
+export default function MenuMovies(props: any) {
   const [genres, setGenres] = useState<GenreType[]>([]);
   const [movies, setMovies] = useState<MovieType[]>([]);
   const [genreFilter, setGenreFilter] = useState<string[]>([]);
@@ -69,20 +69,19 @@ export default function MenuMovies(props:any) {
     genreFilter.length === 0
       ? movies
       : movies.filter((movie) => genreFilter.includes(movie.genre));
+
+  const genreButtons = genres.map((genre: GenreType) => (
+    <ButtonFilter
+      bgColor={colors.primaryBtn}
+      genreFilter={genreFilter}
+      handleSetGenreFilter={handleSetGenreFilter}
+      genre={genre}
+    />
+  ));
   return (
     <MainSection>
-      <ContentainerButtonFilter>
-         {genres.map((genre: GenreType) => (
-        <ButtonFilter
-          
-          bgColor={colors.primaryBtn}
-          genreFilter={genreFilter}
-          handleSetGenreFilter={handleSetGenreFilter}
-          genre={genre}
-        />
-      ))}</ContentainerButtonFilter>
-     
-      <ListOfMovies movies={filteredMovies} genres={genres} />
+      <ContentainerButtonFilter>{genreButtons}</ContentainerButtonFilter>
+      <RenderGenderMovies movies={filteredMovies} genres={genres} />
     </MainSection>
   );
 }

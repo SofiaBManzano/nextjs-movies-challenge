@@ -63,16 +63,12 @@ export default function Login() {
       .catch((error) => console.error("error", error));
   };
   return (
-    <Layout className="c-login u-flex">
-
-      {/* <Image src="/movie-bg.jpg" alt="movie-collage" width={4541/10} height={2195/10}></Image> */}
-
+    <Layout>
 <Image src={moviesbg} alt="movie-collage" fill></Image>
     
   
-      <ContentLogin className=" u-flex u-flex-center">
+      <ContentLogin>
         <Input
-          className="u-margin-bottom c-login-component-width"
           type="text"
           required
           value={valueUser}
@@ -82,7 +78,6 @@ export default function Login() {
           placeholder="Username"
         ></Input>
         <Input
-          className="u-margin-bottom c-login-component-width"
           value={valuePassword}
           type="password"
           required
@@ -93,7 +88,6 @@ export default function Login() {
         ></Input>
         <Button
           primary={true}
-          className="u-margin-bottom c-login-component-width"
           role="button"
           onClick={handleClick}
         >

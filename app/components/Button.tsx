@@ -2,14 +2,15 @@ import styled from "styled-components";
 import { fontSecondary } from "./config/theme";
 import { colors } from "./config/theme";
 import { ButtonProps } from "./types";
+
 export const button = styled.button<ButtonProps>`
-  background: ${(props: any) =>
+  background: ${(props: ButtonProps) =>
     props.primary || props.isActive
       ? `${colors.primaryBtn}`
       : `${colors.secondaryBtn}`};
 
   cursor: pointer;
-  color: ${(props: any) =>
+  color: ${(props: ButtonProps) =>
     props.primary || props.isActive
       ? `${colors.lightColor}`
       : `${colors.darkColor}`};

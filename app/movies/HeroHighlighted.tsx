@@ -2,12 +2,20 @@
 import { useEffect, useState } from "react";
 import MovieType from "../components/types";
 import Button from "../components/Button";
-import  "../../styles/styles.css";
+import "../../styles/styles.css";
 import PosterImg from "../components/home/PosterImg";
 import Highlight from "app/components/home/Highlight";
 import HighlightInfoAll from "app/components/home/HighlightInfoAll";
+import LogOut from "../movies/LogOut";
 
-const {HighlightContentInfo, HighlightInfo, HighlightedText, HighlightedTitle} = HighlightInfoAll;
+const {
+  HighlightContentInfo,
+  HighlightInfo,
+  HighlightedText,
+  HighlightedTitle,
+  HighlightContainerInfo,
+  HighlightContainerInfoBtn,HighlightContainerDiscover
+} = HighlightInfoAll;
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -59,22 +67,30 @@ export default function HeroHighlighted() {
     .filter((movie: MovieType) => movie.highlighted === true)
     .map((movie: MovieType) => {
       return (
-        <Highlight>
+        <Highlight key={movie.id}>
           <HighlightContentInfo>
             <HighlightInfo>
-            <HighlightedTitle>{movie.title}</HighlightedTitle>
-            <HighlightedText>{movie.description}</HighlightedText>
-            <Button primary={true}>Discover</Button>
+              <HighlightContainerInfoBtn>
+              <LogOut></LogOut>
+              </HighlightContainerInfoBtn>
+
+              <HighlightContainerInfo>
+                <HighlightedTitle>{movie.title}</HighlightedTitle>
+                <HighlightedText>{movie.description}</HighlightedText>
+                <HighlightContainerDiscover><Button  primary={true}>Discover</Button></HighlightContainerDiscover>
+                
+              </HighlightContainerInfo>
             </HighlightInfo>
-       
           </HighlightContentInfo>
-         
-            <PosterImg src={movie.poster}></PosterImg>
-         
+          <picture>
+            <source media="(max-width: 768px)" srcSet={movie.thumbnail} />
+            <source media="(min-width: 768px)" srcSet={movie.poster} />
+            <PosterImg src={movie.thumbnail} />
+          </picture>
         </Highlight>
       );
     });
-    
+
   return (
     <>
       {" "}
@@ -91,7 +107,12 @@ export default function HeroHighlighted() {
         customTransition="all .4"
         transitionDuration={500}
         containerClass="carousel-container"
-        removeArrowOnDeviceType={["desktop", "tablet", "mobile"]}
+        removeArrowOnDeviceType={[
+          "superLargeDesktop",
+          "desktop",
+          "tablet",
+          "mobile",
+        ]}
         dotListClass="{border-color: blue 1px solid;}"
         itemClass="carousel-item-padding-40-px"
       >

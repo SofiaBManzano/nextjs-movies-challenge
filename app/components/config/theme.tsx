@@ -4,10 +4,12 @@ import { Roboto_Condensed } from "@next/font/google";
 
 export const colors = {
     primaryBtn: '#751B5C',
+
     secondaryBtn: '#FFFFFF',
     lightColor: '#FFFFFF',
     darkColor: '#000000',
     lightDark: '#222222',
+    corporativeColor: '#751B5C',
 }
 export const fontPrimary = Roboto({
     subsets: ["latin"],

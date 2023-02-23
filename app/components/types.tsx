@@ -7,6 +7,7 @@ export default interface MovieType {
     poster: string;
     rating: number;
     thumbnail: string;
+    cast: string;
   }
 
   export default interface GenreType {
@@ -21,5 +22,12 @@ export default interface MovieType {
     isActive: boolean;
     label: string;
   
+  
+  };
+  export interface flexContainer {
+
+    justifyContent?: string;
+    alignItems?: string
+    className?: string;
   
   };

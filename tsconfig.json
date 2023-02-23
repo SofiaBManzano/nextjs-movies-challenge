@@ -22,6 +22,6 @@
     "baseUrl": ".",
   
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/home/ContainerImg.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/home/ContainerImg.tsx", "app/movies/[id]/popUpLayout.tsx"],
   "exclude": ["node_modules"]
 }
