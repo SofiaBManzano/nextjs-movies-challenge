@@ -6,68 +6,73 @@ import ContentLogin from "../components/authLayout/ContentLogin";
 import Layout from "../components/authLayout/Layout";
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
-import moviesbg from "../../public/movie-bg.jpg"
+import moviesbg from "../../public/movie-bg.jpg";
+import "../../styles/styles.css";
+import { ButtonProps } from "../components/types";
 
 
-const fetchLogin = async (email: string, password: string) => {
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("Accept", "application/json");
-  myHeaders.append("Access-Control-Allow-Origin", "*");
-  myHeaders.append(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PATCH, PUT, DELETE, OPTIONS"
-  );
-  myHeaders.append(
-    "Access-Control-Allow-Headers",
-    "Origin, Content-Type, X-Auth-Token"
-  );
-  myHeaders.append("Access-Control-Allow-Credentials", "true");
 
-  var raw = JSON.stringify({
-    email: email,
-    password: password,
-  });
 
-  var requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    body: raw,
-  };
-
-  return fetch(
-    "https://kata.conducerevel.com/films/auth/sign-in",
-    requestOptions
-  ).then((response) => {
-    console.log(response);
-    
-    if (response.ok) {
-      console.log("OK");
-      return response.json();
-    } else {
-      throw new Error(`API Error. Status: ${response.status}`);
-    }
-  });
-};
-
-export default function Login() {
+export default function Login(): JSX.Element {  {
   const router = useRouter();
+  const [loginFail, setLoginFail] = useState(false);
   const [valueUser, setValueUser] = useState("");
   const [valuePassword, setValuePassword] = useState("");
+  const fetchLogin = async (email: string, password: string) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Accept", "application/json");
+    myHeaders.append("Access-Control-Allow-Origin", "*");
+    myHeaders.append(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+    );
+    myHeaders.append(
+      "Access-Control-Allow-Headers",
+      "Origin, Content-Type, X-Auth-Token"
+    );
+    myHeaders.append("Access-Control-Allow-Credentials", "true");
+  
+    var raw = JSON.stringify({
+      email: email,
+      password: password,
+    });
+  
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+    };
+  
+    return fetch(
+      "https://kata.conducerevel.com/films/auth/sign-in",
+      requestOptions
+    ).then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        setLoginFail(true)
+        throw new Error(`API Error. Status: ${response.status}`);
+      }
+    });
+  };
   const handleClick = () => {
+    setLoginFail(false)
     fetchLogin(valueUser, valuePassword)
       .then((response) => {
         localStorage.setItem("token", response.token);
         router.push("/");
+        
       })
       .catch((error) => console.error("error", error));
   };
   return (
     <Layout>
-<Image src={moviesbg} alt="movie-collage" fill></Image>
+<Image className="bg-image" src={moviesbg} alt="movie-collage" fill></Image>
     
   
-      <ContentLogin>
+      <ContentLogin 
+        loginFail={loginFail}>
         <Input
           type="text"
           required
@@ -86,14 +91,15 @@ export default function Login() {
           }}
           placeholder="Password"
         ></Input>
-        <Button
+        <Button<ButtonProps>
           primary={true}
           role="button"
           onClick={handleClick}
+        
         >
           Sign in
         </Button>
       </ContentLogin>
     </Layout>
   );
-}
+}}

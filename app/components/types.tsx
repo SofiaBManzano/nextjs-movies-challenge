@@ -21,13 +21,9 @@ export default interface MovieType {
     size: "small" | "medium" | "large";
     isActive: boolean;
     label: string;
-  
-  
-  };
-  export interface flexContainer {
-
-    justifyContent?: string;
-    alignItems?: string
-    className?: string;
+    loginFail: boolean;
   
   };
+ export interface Popup {
+  popUpActive: boolean;
+ }

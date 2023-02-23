@@ -7,7 +7,8 @@ import PosterImg from "../components/home/PosterImg";
 import Highlight from "app/components/home/Highlight";
 import HighlightInfoAll from "app/components/home/HighlightInfoAll";
 import LogOut from "../movies/LogOut";
-
+import Image from 'next/image';
+import userIcon from "../../public/userIcon.png"
 const {
   HighlightContentInfo,
   HighlightInfo,
@@ -36,7 +37,7 @@ const fetchListMovies = async (token: string | null) => {
   ).then((response) => response.json());
 };
 
-export default function HeroHighlighted() {
+export default function HeroHighlighted(): JSX.Element {   {
   const [movies, setMovies] = useState([]);
   const token: string | null = localStorage.getItem("token");
 
@@ -71,13 +72,15 @@ export default function HeroHighlighted() {
           <HighlightContentInfo>
             <HighlightInfo>
               <HighlightContainerInfoBtn>
+                {/* <Image className="o-icon" src={userIcon} alt="log out"></Image> */}
               <LogOut></LogOut>
               </HighlightContainerInfoBtn>
 
               <HighlightContainerInfo>
                 <HighlightedTitle>{movie.title}</HighlightedTitle>
                 <HighlightedText>{movie.description}</HighlightedText>
-                <HighlightContainerDiscover><Button  primary={true}>Discover</Button></HighlightContainerDiscover>
+                <HighlightContainerDiscover>
+                  <Button  primary={true}>Discover</Button></HighlightContainerDiscover>
                 
               </HighlightContainerInfo>
             </HighlightInfo>
@@ -120,4 +123,4 @@ export default function HeroHighlighted() {
       </Carousel>
     </>
   );
-}
+}}

@@ -6,9 +6,6 @@ const {HighlightedTitle} = HighlightInfoAll;
 import Detail from "./detailStyles";
 import Button from "app/components/Button";
 const { ImageContainer, BtnsContainer, DetailInfo, DetailLayoutInfo } = Detail;
-
-
-// const { HighlightedTitle } = HighlightInfoAll;
 import UnderConstruction from "./underConstruction";
 import PosterImg from "app/components/home/PosterImg";
 const fetchMovieById = async (token: string | null, id: string) => {
@@ -31,7 +28,6 @@ const fetchMovieById = async (token: string | null, id: string) => {
 export default function Movie({ params }: any, props: any) {
   const { id } = params;
   const [movie, setMovie] = useState<MovieType>({});
-  console.log(movie);
   useEffect(() => {
     const token: string | null = localStorage.getItem("token");
     fetchMovieById(token, id).then((movie) => setMovie(movie));

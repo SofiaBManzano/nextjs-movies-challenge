@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { flexContainer } from "../types";
+import { colors } from "../config/theme";
+import { fontSecondary } from "../config/theme";
 const HighlightContentInfo = styled.div`
 
  position: absolute;
@@ -34,30 +36,51 @@ const HighlightInfo = styled.div`
 const HighlightedTitle = styled.h2`
    color: white;
    text-transform: uppercase;
+   ${fontSecondary.style};
+   font-weight: 700;
    font-size: 54px;
    margin-bottom: 16px;
-   max-width: 76%;
+   margin-top: 0;
+
+   
+   margin-bottom: 10px;
     @media (min-width: 768px) {
-      max-width: 324px;
-    
+
+      font-size: 76px;
+    }
+
+    @media (min-width: 1440px) {
+        font-size: 128px;
        
+    }
+    @media (min-width: 1660px) {
+        font-size: 128px;
     }
 }
     `;
 const HighlightedText = styled.p`
     display: -webkit-box;
-    max-width: 400px;
+ 
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     
     @media (min-width: 768px) {
-        max-width: calc(100% - 173px)
+        
        
+    }
+    @media (min-width: 1440px) {
+    
+        font-size: 24px;
+       
+    }
+    @media (min-width: 1660px) {
+      
     }
 }
 
     `;
+
 const HighlightContainerDiscover = styled.div`
   width: 100%;
   display: flex;
@@ -75,7 +98,13 @@ const HighlightContainerInfo = styled.div<flexContainer>`
   display: flex;
   flex-direction: column;
   @media (min-width: 768px) {
-    padding: 0 120px;
+    max-width: calc(100% - 173px);
+  }
+  @media (min-width: 1440px) {
+    max-width: calc(100% - 757px);
+  }
+  @media (min-width: 1660px) {
+    max-width: calc(100% - 967px);
   }
 `;
 export default {
