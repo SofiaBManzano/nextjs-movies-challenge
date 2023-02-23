@@ -29,7 +29,7 @@ const fetchMovieById = async (token: string | null, id: string) => {
 
 export default function Movie({ params }: any, props: any) {
   const { id } = params;
-  const [movie, setMovie] = useState<MovieType>({});
+  const [movie, setMovie] = useState<any>({});
   useEffect(() => {
     const token: string | null = localStorage.getItem("token");
     fetchMovieById(token, id).then((movie) => setMovie(movie));
@@ -44,8 +44,12 @@ export default function Movie({ params }: any, props: any) {
         </picture>
         <BtnsContainer>
           {" "}
-          <Button<ButtonFilters> primary={false}>Trailer</Button>
-          <Button<ButtonFilters> primary={true}>Play</Button>
+          <Button primary={false} isActive={false}>
+            Trailer
+          </Button>
+          <Button primary={true} isActive={false}>
+            Play
+          </Button>
         </BtnsContainer>
       </ImageContainer>
       <DetailLayoutInfo>

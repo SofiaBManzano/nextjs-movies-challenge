@@ -22,9 +22,9 @@ export interface ButtonProps {
 export interface ButtonFilters {
   primary: boolean;
   isActive: boolean;
-  label: string;
+  // label: string;
 }
 
-interface LoginProps {
+export interface LoginProps {
   loginFail: boolean;
 }

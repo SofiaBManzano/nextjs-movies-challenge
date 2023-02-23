@@ -72,7 +72,7 @@ export default function Login(): JSX.Element {
           fill
         ></Image>
 
-        <ContentLogin<LoginProps> loginFail={loginFail}>
+        <ContentLogin<any> loginFail={loginFail}>
           <Input
             type="text"
             required
@@ -91,11 +91,7 @@ export default function Login(): JSX.Element {
             }}
             placeholder="Password"
           ></Input>
-          <Button<ButtonProps>
-            primary={true}
-            role="button"
-            onClick={handleClick}
-          >
+          <Button<any> primary={true} role="button" onClick={handleClick}>
             Sign in
           </Button>
         </ContentLogin>

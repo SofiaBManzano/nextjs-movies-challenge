@@ -83,7 +83,9 @@ export default function HeroHighlighted(): JSX.Element {
                   <HighlightedTitle>{movie.title}</HighlightedTitle>
                   <HighlightedText>{movie.description}</HighlightedText>
                   <HighlightContainerDiscover>
-                    <Button<ButtonFilters> primary={true}>Discover</Button>
+                    <Button<any> primary={true} isActive={false}>
+                      Discover
+                    </Button>
                   </HighlightContainerDiscover>
                 </HighlightContainerInfo>
               </HighlightInfo>

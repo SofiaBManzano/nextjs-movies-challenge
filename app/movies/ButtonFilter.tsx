@@ -18,7 +18,7 @@ export function ButtonFilter(props: any) {
     }
   };
   return (
-    <Button<ButtonFilters>
+    <Button<any>
       key={props.genre.id}
       isActive={isActive}
       primary={false}

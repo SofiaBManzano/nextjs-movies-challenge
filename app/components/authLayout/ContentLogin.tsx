@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../config/theme";
-import LoginProps from "../types"
-export const contentLogin = styled.div`
+import LoginProps from "../types";
+export const contentLogin = styled.div<any>`
   background-color: ${colors.darkColor};
   padding: 16px;
   position: absolute;

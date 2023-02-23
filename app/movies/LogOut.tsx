@@ -10,7 +10,7 @@ export default function logOut() {
   };
   return (
     <>
-      <Button primary={true}>
+      <Button<any> primary={true}>
         <Link href="/login" onClick={handleLogOut}>
           Sign out
         </Link>
