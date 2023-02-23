@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        <title>RVL</title>
+        <title>RVLMOVIES</title>
       </head>
       <GlobalStyles/><body>{children}</body>
     </html>

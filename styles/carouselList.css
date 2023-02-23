@@ -1,0 +1,14 @@
+
+h2 + .react-multi-carousel-list{
+    cursor: grab;
+    height: 400px;
+}
+h2 + .react-multi-carousel-list .react-multi-carousel-track{
+    height: fit-content;
+    gap: 26px;
+    max-height: 500px;
+}
+h2 + .react-multi-carousel-list .react-multi-carousel-track .react-multi-carousel-item{
+    max-height: 500px;
+    display: contents;
+}

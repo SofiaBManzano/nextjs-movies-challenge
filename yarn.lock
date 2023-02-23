@@ -1886,10 +1886,10 @@
     "loose-envify" "^1.1.0"
     "scheduler" "^0.23.0"
 
-"react-indiana-drag-scroll@^3.0.3-alpha":
-  "integrity" "sha512-Bo8Ium/CGs0oIYzk4wVDphuhrf2QRvLKTLO/+21M+czF1EQEII4w1UqoFs4lIGd84YpVL8UDXIcy2m9yzsFuRQ=="
-  "resolved" "https://registry.npmjs.org/react-indiana-drag-scroll/-/react-indiana-drag-scroll-3.0.3-alpha.tgz"
-  "version" "3.0.3-alpha"
+"react-indiana-drag-scroll@^3.0.2-alpha":
+  "integrity" "sha512-S5hNNlfZroVEbhSN+2GJt+0Mt4YFUOCZ6eWjv4mJL0tEzxiAIoxj+pNOlRPmg1o3tWRH4dC7d8rqyPoM9+8Bvw=="
+  "resolved" "https://registry.npmjs.org/react-indiana-drag-scroll/-/react-indiana-drag-scroll-3.0.2-alpha.tgz"
+  "version" "3.0.2-alpha"
 
 "react-is@^16.13.1", "react-is@^16.7.0", "react-is@>= 16.8.0":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="

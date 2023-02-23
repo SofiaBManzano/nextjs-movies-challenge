@@ -17,7 +17,10 @@ body {
     max-width: 100vw;
     overflow-x: hidden;
 }
-
+::selection {
+    background-color: ${colors.lightDark};
+    color: ${colors.corporativeColor};
+  }
 a {
     color: inherit;
     text-decoration: none;
